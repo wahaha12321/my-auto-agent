@@ -1,17 +1,18 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Daily HelloWorld Logic
 
 # Controls when the workflow will run
 on:
+  schedule:
+    # 每天北京时间早上 9:00 执行 (UTC 时间 01:00)
+    - cron: '0 16 * * *'
   # Triggers the workflow on push or pull request events but only for the "main" branch
+  workflow_dispatch: # 允许你手动点击按钮触发，方便调试
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
